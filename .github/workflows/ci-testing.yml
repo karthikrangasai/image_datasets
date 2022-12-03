@@ -1,0 +1,43 @@
+name: CI testing
+
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  ci_testing:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: "1.2.1"
+
+      - name: Install Dependencies
+        shell: bash
+        run: |
+          poetry install --no-interaction -vvv --no-root
+
+      - name: Install Package
+        shell: bash
+        run: |
+          poetry install --no-interaction -vvv
+          poetry show
+
+      - name: Tests
+        run: |
+          poetry run pre-commit run --verbose
