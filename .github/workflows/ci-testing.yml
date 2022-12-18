@@ -22,19 +22,22 @@ jobs:
         with:
           python-version: "3.8"
 
-      - name: Install Poetry
-        shell: bash
-        run: |
-          export POETRY_HOME=/opt/poetry
-          python3 install-poetry.py --version 1.3.1
-          $POETRY_HOME/bin/poetry --version
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.3.1
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
 
-      - name: Install the dependencies and the package
+      - name: Install dependencies
         shell: bash
-        run: |
-          $POETRY_HOME/bin/poetry install --no-interaction -vvv --all-extras
-          $POETRY_HOME/bin/poetry show
+        run: poetry install --no-interaction --no-root -vvv --all-extras
 
-      - name: Tests
+      - name: Install project
+        shell: bash
+        run: poetry install --no-interaction
+
+      - name: Run tests
         run: |
-          $POETRY_HOME/bin/poetry run pre-commit run --verbose
+          .venv/bin/python -m pre_commit run --all-files --verbose
