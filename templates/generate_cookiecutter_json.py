@@ -1,6 +1,7 @@
-from image_datasets.core.constants import VALID_SCHEMA_NAMES
-from pathlib import Path
 import json
+from pathlib import Path
+
+import image_datasets.core.constants as constants
 
 TEMPLATE_DIR = Path(__file__).resolve().parent
 
@@ -10,7 +11,7 @@ cookiecutter_options = {
     "dataset_name": "My New Dataset",
     "__module_dataset_name": "{{ cookiecutter.dataset_name|lower|replace(' ', '-')|replace('-', '_') }}",
     "one_line_description": "This dataset is designed for XXX Image task.",
-    "schema_name": list(VALID_SCHEMA_NAMES),
+    "schema_name": list(constants.VALID_SCHEMA_NAMES),
     "is_dataset_local": [True, False],
 }
 

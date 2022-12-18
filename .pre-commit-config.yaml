@@ -33,21 +33,21 @@ repos:
 
       - id: black
         name: black - Code Formatting with Black
-        entry: poetry run black src tests
+        entry: poetry run black src tests templates
         language: system
         types: [python]
         pass_filenames: false
 
       - id: isort
         name: isort - Code Formatting with isort
-        entry: poetry run isort src tests
+        entry: poetry run isort src tests templates
         language: system
         types: [python]
         pass_filenames: false
 
       - id: mypy
         name: mypy - Static Type Checking
-        entry: poetry run mypy src tests
+        entry: poetry run mypy src tests templates/generate_cookiecutter_json.py
         language: system
         types: [python]
         pass_filenames: false
@@ -55,13 +55,6 @@ repos:
       - id: pytest
         name: pytest - Testing the code
         entry: poetry run pytest tests -vv
-        language: python
-        pass_filenames: false
-        always_run: true
-
-      - id: generate_cookiecutter_json
-        name: Generate new cookiecutter file
-        entry: poetry run python templates/generate_cookiecutter_json.py
         language: python
         pass_filenames: false
         always_run: true

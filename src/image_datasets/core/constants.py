@@ -1,13 +1,14 @@
 from collections import defaultdict
 from enum import Enum
 from types import SimpleNamespace
+from typing import Any, Dict, Set
 
 from image_datasets.core.license import License
 from image_datasets.core.schemas import SCHEMA_NAME_TO_FEATURES
 
 IMAGE_DATASET_VALUES = SimpleNamespace(NULL="<BB_NULL_STR>")
 
-METADATA: dict = {
+METADATA: Dict[str, Any] = {
     "_LOCAL": bool,
     "_LICENSE": License,
     "_DISPLAYNAME": str,
@@ -36,4 +37,4 @@ METADATA: dict = {
 # SCHEMA_TO_TASKS = dict(SCHEMA_TO_TASKS)
 
 # VALID_TASKS = set(TASK_TO_SCHEMA.keys())
-VALID_SCHEMA_NAMES = set(SCHEMA_NAME_TO_FEATURES.keys())
+VALID_SCHEMA_NAMES: Set[str] = set(SCHEMA_NAME_TO_FEATURES.keys())

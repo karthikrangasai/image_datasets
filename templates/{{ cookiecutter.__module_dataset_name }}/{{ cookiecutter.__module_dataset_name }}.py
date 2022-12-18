@@ -32,18 +32,19 @@ TODO: Before submitting your script, delete this doc string and replace it with 
 # https://github.com/huggingface/datasets/blob/master/templates/new_dataset_script.py
 
 import os
-from typing import Any, List, Tuple, Dict
+from typing import Any, Dict, List, Tuple
 
 import datasets
 from datasets.builder import GeneratorBasedBuilder
-from datasets.info import DatasetInfo
-from datasets.splits import SplitGenerator, Split
-from image_datasets.core import schemas
 from datasets.download import DownloadManager
+from datasets.info import DatasetInfo
+from datasets.splits import Split, SplitGenerator
+
+from image_datasets.core import schemas
 from image_datasets.core.configs import ImageDatasetConfig
 
 # TODO: add True or False boolean value indicating if this dataset is local or not
-_LOCAL = {{cookiecutter.is_dataset_local}}
+_LOCAL = bool("{{cookiecutter.is_dataset_local}}")
 
 # TODO: Add BibTeX citation
 _CITATION = """\
