@@ -1,0 +1,1 @@
+{"dataset_name": "My New Dataset", "pkg_name": "{{ cookiecutter.dataset_name|lower|replace(' ', '-')|replace('-', '') }}", "module_dataset_name": "{{ cookiecutter.dataset_name|lower|replace(' ', '-')|replace('-', '') }}", "one_line_description": "This dataset is designed for XXX Image task.", "schema_name": ["classification"], "is_dataset_local": [true, false]}

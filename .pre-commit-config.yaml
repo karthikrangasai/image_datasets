@@ -61,3 +61,10 @@ repos:
         language: python
         pass_filenames: false
         always_run: true
+
+      - id: generate_cookiecutter_json
+        name: Generate new cookiecutter file
+        entry: poetry run python templates/generate_cookiecutter_json.py
+        language: python
+        pass_filenames: false
+        always_run: true
