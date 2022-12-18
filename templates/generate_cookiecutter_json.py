@@ -8,8 +8,7 @@ COOKIECUTTER_JSON_FILE = TEMPLATE_DIR / "cookiecutter.json"
 
 cookiecutter_options = {
     "dataset_name": "My New Dataset",
-    "pkg_name": "{{ cookiecutter.dataset_name|lower|replace(' ', '-')|replace('-', '') }}",
-    "module_dataset_name": "{{ cookiecutter.dataset_name|lower|replace(' ', '-')|replace('-', '') }}",
+    "__module_dataset_name": "{{ cookiecutter.dataset_name|lower|replace(' ', '-')|replace('-', '_') }}",
     "one_line_description": "This dataset is designed for XXX Image task.",
     "schema_name": list(VALID_SCHEMA_NAMES),
     "is_dataset_local": [True, False],

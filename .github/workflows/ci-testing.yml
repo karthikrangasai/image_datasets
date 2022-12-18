@@ -30,7 +30,7 @@ jobs:
       - name: Install Dependencies
         shell: bash
         run: |
-          poetry install --no-interaction -vvv --no-root
+          poetry install --no-interaction -vvv
 
       - name: Install Package
         shell: bash

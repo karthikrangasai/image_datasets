@@ -64,7 +64,7 @@ _CITATION = """\
 # Example:
 #     MNIST: [dataset_name] --> mnist
 #     Fashion-MNIST: [dataset_name] --> fashion_mnist
-_DATASETNAME = "{{ cookiecutter.module_dataset_name }}"
+_DATASETNAME = "{{ cookiecutter.__module_dataset_name }}"
 
 # TODO: Add the official description of the dataset here.
 # (Use the one line description if official description does not exist.)
