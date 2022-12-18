@@ -5,7 +5,7 @@
 - A working installation of Git
 - A GitHub Account
 - Python 3.8 or higher
-- Poetry 1.2.1
+- Poetry 1.3.1
 
 ## Contributing a new Dataset
 
