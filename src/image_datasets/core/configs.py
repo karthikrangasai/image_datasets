@@ -1,6 +1,5 @@
-# type: ignore
 from dataclasses import dataclass
-from typing import Optional, Type
+from typing import Optional
 
 from datasets.builder import BuilderConfig
 from datasets.utils import Version
@@ -10,7 +9,7 @@ from datasets.utils import Version
 class ImageDatasetConfig(BuilderConfig):
     """BuilderConfig for an Image Dataset."""
 
-    name: Optional[str] = None
+    name: str = "default"
     version: Optional[Version] = None
     description: Optional[str] = None
     schema: Optional[str] = None
